@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "string.h": "c",
+        "stdlib.h": "c",
+        "sort.h": "c",
+        "hashfun.h": "c",
+        "quicksort.h": "c",
+        "stdio.h": "c",
+        "algorithm": "c",
+        "sstream": "c",
+        "random": "c"
+    }
+}
