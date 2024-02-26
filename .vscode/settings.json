@@ -8,6 +8,7 @@
         "stdio.h": "c",
         "algorithm": "c",
         "sstream": "c",
-        "random": "c"
+        "random": "c",
+        "hash.h": "c"
     }
 }
