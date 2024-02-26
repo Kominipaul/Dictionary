@@ -10,6 +10,10 @@
 // ΠΑΟΥΛΙΝ ΚΟΜΙΝΙ 202220210090 dit21090@go.uop.gr
 // ΒΑΣΙΛΗΣ ΚΟΥΤΑΝΤΟΣ 2022202100097 dit21097@go.uop.gr
 
+int INT_HASH_TABLE(char* filename ,Word** table_row, int DICTIONARYSIZE);
+void Display(Word** table_row, int DICTIONARYSIZE);
+int Search(Word** table_row, int DICTIONARYSIZE);
+void freeTable(Word** table_row, int DICTIONARYSIZE);
 
 typedef struct Word
 {
@@ -126,6 +130,24 @@ int Search(Word** table_row, int DICTIONARYSIZE)
     }
 }
 
+void freeTable(Word** table_row, int DICTIONARYSIZE)
+{
+    for (int i = 0; i < DICTIONARYSIZE; i++)
+    {
+        if (table_row[i] != NULL)
+        {
+            Word *current = table_row[i];
+            Word *next;
+            while (current != NULL)
+            {
+                next = current->next;
+                free(current->word);
+                free(current);
+                current = next;
+            }
+        }
+    }
+}
 
 int main(int argc, char *argv[])
 {   
@@ -165,6 +187,8 @@ int main(int argc, char *argv[])
         }
         fflush(stdin);
     } while (mode != 0);
+
+    freeTable(table_row, DICTIONARYSIZE);
 
     return 0;
 }
